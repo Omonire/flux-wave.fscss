@@ -5,7 +5,7 @@
   "extension": "fscss",
   "fscss_version": ">=1.2.0",
   "blocked_methods": [],
-  "repository": "https://github.com/username/flux-wave.fscss",
+  "repository": "https://github.com/Omonire/flux-wave.fscss",
   "file": {
     "usage": {
       "directive": "flux-*",
@@ -23,7 +23,7 @@
     ],
     "remote": "flux-wave.fscss"
   },
-  "author": "omonire",
+  "author": "Omonire",
   "license": "MIT",
   "keywords": [
     "fscss",
@@ -35,5 +35,5 @@
     "css",
     "no-js"
   ],
-  "bugs": "https://github.com/username/flux-wave.fscss/issues"
+  "bugs": "https://github.com/Omonire/flux-wave.fscss/issues"
 }
