@@ -1,0 +1,39 @@
+{
+  "name": "flux-wave",
+  "version": "1.0.0",
+  "description": "Flowing, layered gradient wave bands built entirely from FSCSS mixins, pure CSS.",
+  "extension": "fscss",
+  "fscss_version": ">=1.2.0",
+  "blocked_methods": [],
+  "repository": "https://github.com/username/flux-wave.fscss",
+  "file": {
+    "usage": {
+      "directive": "flux-*",
+      "helpers": [
+        "flux-tokens(root:root)",
+        "flux-base(st:.wave-container)",
+        "flux-container(st:.wave-container)",
+        "flux-band(st:.wave)",
+        "flux-bands(st:.wave, counter:flux-i)",
+        "flux-wave-preset(st:.wave-container, bandCount:flux-i)"
+      ]
+    },
+    "modules": [
+      "flux-wave.fscss"
+    ],
+    "remote": "flux-wave.fscss"
+  },
+  "author": "Figsh",
+  "license": "MIT",
+  "keywords": [
+    "fscss",
+    "flux",
+    "wave",
+    "gradient",
+    "loader",
+    "animation",
+    "css",
+    "no-js"
+  ],
+  "bugs": "https://github.com/username/flux-wave.fscss/issues"
+}

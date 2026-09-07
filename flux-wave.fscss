@@ -1,0 +1,124 @@
+/* =========================================================
+   flux-wave.fscss  – Flowing gradient wave bands
+   ========================================================= */
+   
+@define flux-tokens(root:root){`
+  :@use(root){
+    /* Container */
+    --flux-wrap-width: 100%;
+    --flux-wrap-max-width: 560px;
+    --flux-wrap-height: 160px;
+    --flux-wrap-bg: #000;
+    --flux-wrap-radius: 28px;
+
+    /* Shared band defaults */
+    --flux-band-width: 140%;
+    --flux-band-height: 80px;
+    --flux-band-left: -20%;
+    --flux-band-radius: 50%;
+    --flux-band-filter: blur(12px);
+    --flux-band-blend: screen;
+    --flux-band-opacity: 0.75;
+    --flux-band-anim: flux-flow 4.5s ease-in-out infinite;
+
+    /* Band 1 */
+    --flux-band1-bg: linear-gradient(90deg, transparent 0%, #00c2ff 20%, #30d158 40%, #af52de 60%, #ff375f 80%, transparent 100%);
+    --flux-band1-top: 35%;
+    --flux-band1-delay: 0s;
+    --flux-band1-duration: 4.2s;
+
+    /* Band 2 */
+    --flux-band2-bg: linear-gradient(90deg, transparent 0%, #0a84ff 25%, #c42bff 50%, #ff2d55 75%, transparent 100%);
+    --flux-band2-top: 28%;
+    --flux-band2-height: 70px;
+    --flux-band2-opacity: 0.65;
+    --flux-band2-delay: -1.1s;
+    --flux-band2-duration: 5.1s;
+
+    /* Band 3 */
+    --flux-band3-bg: linear-gradient(90deg, transparent 0%, #34c759 30%, #5e5ce6 55%, #ff375f 80%, transparent 100%);
+    --flux-band3-top: 42%;
+    --flux-band3-height: 65px;
+    --flux-band3-opacity: 0.55;
+    --flux-band3-delay: -2.3s;
+    --flux-band3-duration: 4.8s;
+
+    /* Band 4 */
+    --flux-band4-bg: linear-gradient(90deg, transparent 0%, #64d2ff 20%, #bf5af2 45%, #ff9f0a 70%, transparent 100%);
+    --flux-band4-top: 38%;
+    --flux-band4-height: 55px;
+    --flux-band4-opacity: 0.45;
+    --flux-band4-filter: blur(16px);
+    --flux-band4-delay: -0.7s;
+    --flux-band4-duration: 5.6s;
+  }
+
+  @keyframes flux-flow {
+    0%   { transform: translateX(-8%) scaleY(0.55) skewX(-4deg); }
+    25%  { transform: translateX(-2%) scaleY(1.25) skewX(2deg);  }
+    50%  { transform: translateX(6%)  scaleY(0.7)  skewX(-3deg); }
+    75%  { transform: translateX(12%) scaleY(1.15) skewX(3deg);  }
+    100% { transform: translateX(-8%) scaleY(0.55) skewX(-4deg); }
+  }
+`}
+
+
+@define flux-base(st:.wave-container){`
+  @use(st), @use(st) *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`}
+
+/* ---------- Container ---------- */
+@define flux-container(st:.wave-container){`
+  @use(st){
+    position: relative;
+    width: var(--flux-wrap-width, 100%);
+    max-width: var(--flux-wrap-max-width, 560px);
+    height: var(--flux-wrap-height, 160px);
+    background: var(--flux-wrap-bg, #000);
+    border-radius: var(--flux-wrap-radius, 28px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`}
+
+/* ---------- Shared band base ---------- */
+@define flux-band(st:.wave){`
+  @use(st){
+    position: absolute;
+    width: var(--flux-band-width, 140%);
+    left: var(--flux-band-left, -20%);
+    border-radius: var(--flux-band-radius, 50%);
+    mix-blend-mode: var(--flux-band-blend, screen);
+    animation: var(--flux-band-anim, flux-flow 4.5s ease-in-out infinite);
+  }
+`}
+
+/* ---------- Four bands, generated via array loop ---------- */
+
+
+@define flux-bands(st:.wave, counter: flux-i){`
+@arr flux-i[count(4,1)]
+  @use(st).wave-@arr.@use(counter)[]{
+    background: var(--flux-band@arr.@use(counter)[]-bg, none);
+    top: var(--flux-band@arr.@use(counter)[]-top, 30%);
+    height: var(--flux-band@arr.@use(counter)[]-height, var(--flux-band-height, 80px));
+    opacity: var(--flux-band@arr.@use(counter)[]-opacity, var(--flux-band-opacity, 0.75));
+    filter: var(--flux-band@arr.@use(counter)[]-filter, var(--flux-band-filter, blur(12px)));
+    animation-delay: var(--flux-band@arr.@use(counter)[]-delay, 0s);
+    animation-duration: var(--flux-band@arr.@use(counter)[]-duration, 4.5s);
+  }
+`}
+
+/* ---------- One-call composite ---------- */
+@define flux-wave-preset(st:.wave-container, bandCount: flux-i){`
+  @flux-base(@use(st))
+  @flux-container(@use(st))
+  @flux-band(@use(st) .wave)
+  @flux-bands(@use(st) .wave, @use(bandCount))
+`}
