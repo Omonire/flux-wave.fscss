@@ -13,7 +13,7 @@ Via remote import:
 Or from the raw file directly:
 
 ```fscss
-@import((*) from "https://raw.githubusercontent.com/username/flux-wave.fscss/main/flux-wave.fscss")
+@import((*) from "https://raw.githubusercontent.com/Omonire/flux-wave.fscss/main/flux-wave.fscss")
 ```
 
 ## Usage
