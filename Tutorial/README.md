@@ -1,65 +1,71 @@
-# FSCSS Tutorials
+# flux-wave Training — 30 Tutorials
 
-Learn Figured Shorthand CSS (FSCSS) step by step. This curriculum takes you from your very first `.fscss` file to a complete, production-ready component built from FSCSS mixins.
+A complete, hands-on course for **flux-wave.fscss** — the flowing, layered gradient wave library built entirely from FSCSS mixins.
 
-FSCSS is a lightweight CSS preprocessor that compiles to plain CSS. It adds variables, reusable definition blocks, arrays, conditional event logic, semantic pattern matching, and powerful shorthand syntax on top of standard CSS — no runtime dependency in the compiled output.
+Every tutorial is grown around the real `flux-wave.fscss` source in this repository. You will go from "I have never opened a `.fscss` file" to "I can revamp, extend, and ship my own flux-wave components." Along the way you learn exactly the FSCSS skills the library is built from: `@define` mixins, design tokens, array-generated bands, compact keyframes, and the preset composition pattern.
 
-## Prerequisites
+## What flux-wave.fscss is
 
-- Basic knowledge of CSS (selectors, properties, `@media`, `@keyframes`).
-- A code editor.
-- Node.js (only if you want the CLI — browser runtime works without it).
+- **Pure CSS.** No JavaScript. The compiled output is plain CSS.
+- **FSCSS mixins.** Built from `@define` blocks: `flux-tokens`, `flux-base`, `flux-container`, `flux-band`, `flux-bands`, and a one-call `flux-wave-preset`.
+- **Design tokens.** All sizing, gradients, timing, and blur live in `--flux-*` custom properties you can override.
+- **Array-generated.** Four gradient bands are produced from a `count(4,1)` array loop — not four hand-written blocks.
 
-## How to use this course
+## How the course is organized
 
-Every tutorial is a numbered folder with its own `README.md`. Each one contains:
-- What you will learn
-- Step-by-step FSCSS code
-- The compiled CSS output
-- Example HTML when relevant
-- Gotchas and best practices
-
-Work through the folders in order. The last tutorial is a capstone project that combines almost everything you learned.
+| Part | Folders | What you master |
+|---|---|---|
+| 1 — Foundations | 01–05 | What flux-wave is, FSCSS setup, first wave, HTML anatomy, the token system |
+| 2 — The Machine Room | 06–10 | Container/base mixins, band generation, the `flux-flow` animation, per-band styling |
+| 3 — Customization | 11–15 | Brand overrides, band counts, sizes, timing, multiple waves per page |
+| 4 — FSCSS Power-Ups | 16–20 | Variables, `@fun` stores, `@event` themes, modular imports, `@random` |
+| 5 — Build Wave Components | 21–30 | Build your own tokens, mixins, presets, loaders, badges, publish, and a final capstone |
 
 ## The 30 tutorials
 
-| # | Folder | Topic |
-|---|--------|-------|
-| 01 | [`01-what-is-fscss`](01-what-is-fscss/README.md) | What is FSCSS? Philosophy, history, and when to use it |
-| 02 | [`02-installation-setup`](02-installation-setup/README.md) | Every way to install and run FSCSS (NPM, CLI, CDN runtime, ESM) |
-| 03 | [`03-first-fscss-file`](03-first-fscss-file/README.md) | Your first `.fscss` file and compile pipeline |
-| 04 | [`04-variables-fundamentals`](04-variables-fundamentals/README.md) | Variables, the `!` force-eval marker, and design tokens |
-| 05 | [`05-scoped-and-local-variables`](05-scoped-and-local-variables/README.md) | Local, scoped, and overridden variables |
-| 06 | [`06-style-blocks-str`](06-style-blocks-str/README.md) | Reusable style fragments with `str()` |
-| 07 | [`07-define-blocks`](07-define-blocks/README.md) | Reusable, parameterized blocks with `@define` |
-| 08 | [`08-define-composition`](08-define-composition/README.md) | Composing components from multiple defines |
-| 09 | [`09-block-defines-and-media`](09-block-defines-and-media/README.md) | Block defines, backtick strings, and `@media` generation |
-| 10 | [`10-fun-stores`](10-fun-stores/README.md) | Design-token stores with `@fun` and dot access |
-| 11 | [`11-arr-arrays`](11-arr-arrays/README.md) | Ordered collections with `@arr` |
-| 12 | [`12-array-methods`](12-array-methods/README.md) | `.length`, `.first`, `.last`, `.join`, `.sum`, and friends |
-| 13 | [`13-array-auto-indexing`](13-array-auto-indexing/README.md) | Generate rules with `@arr.name[]` auto-iteration |
-| 14 | [`14-random`](14-random/README.md) | Compile-time and runtime randomness with `@random` |
-| 15 | [`15-event-logic`](15-event-logic/README.md) | Conditional style logic with `@event` |
-| 16 | [`16-event-comparisons-and-math`](16-event-comparisons-and-math/README.md) | Numeric comparisons and `num()` inside events |
-| 17 | [`17-import-basics`](17-import-basics/README.md) | `@import` fundamentals: local, remote, and library imports |
-| 18 | [`18-import-selective-aliases`](18-import-selective-aliases/README.md) | Selective imports and aliases |
-| 19 | [`19-modular-architecture`](19-modular-architecture/README.md) | Build a scalable multi-file style system |
-| 20 | [`20-shorthand-shared-values`](20-shorthand-shared-values/README.md) | `%2`–`%6` and `%i` shared-value shorthand |
-| 21 | [`21-mx-and-mxs`](21-mx-and-mxs/README.md) | The `mx()` and `mxs()` multi-property helpers |
-| 22 | [`22-attribute-selectors`](22-attribute-selectors/README.md) | `$(attribute:value)` attribute selector shorthand |
-| 23 | [`23-keyframes-compact`](23-keyframes-compact/README.md) | Compact `@keyframes` blocks that bundle the animation property |
-| 24 | [`24-vendor-prefixing`](24-vendor-prefixing/README.md) | Automatic vendor prefixes with `-*-` |
-| 25 | [`25-num-calculations`](25-num-calculations/README.md) | In-stylesheet math with `num()` |
-| 26 | [`26-count-and-length`](26-count-and-length/README.md) | Sequence and string-length utilities |
-| 27 | [`27-copy-and-ext`](27-copy-and-ext/README.md) | Substring extraction with `copy()` and `@ext()` |
-| 28 | [`28-rpt-and-pattern`](28-rpt-and-pattern/README.md) | Repetition with `rpt()` and semantic matching with `pattern()` |
-| 29 | [`29-exec-debugging`](29-exec-debugging/README.md) | Console logging and pipeline control with `exec()` |
-| 30 | [`30-capstone-component`](30-capstone-component/README.md) | Capstone: a complete animated gradient badge + a `flux-wave` remix |
+| # | Folder | Lesson |
+|---|--------|--------|
+| 01 | [`01-introducing-flux-wave`](01-introducing-flux-wave/README.md) | What flux-wave is, what it ships, and the ideas behind it |
+| 02 | [`02-setting-up-fscss`](02-setting-up-fscss/README.md) | Set up FSCSS v1.2.0 so flux-wave can run (runtime, CLI, props) |
+| 03 | [`03-your-first-wave`](03-your-first-wave/README.md) | Put a live wave on a page in 3 lines of FSCSS |
+| 04 | [`04-wave-html-anatomy`](04-wave-html-anatomy/README.md) | The `wave-container` + `wave-N` structure element by element |
+| 05 | [`05-the-flux-token-system`](05-the-flux-token-system/README.md) | Every `--flux-*` token: container, band, and per-band defaults |
+| 06 | [`06-flux-base-and-container`](06-flux-base-and-container/README.md) | The scoped reset and outer shell mixins |
+| 07 | [`07-flux-band-and-bands`](07-flux-band-and-bands/README.md) | Shared band shape and the generated band variants |
+| 08 | [`08-the-flux-flow-animation`](08-flux-flow-animation/README.md) | The `flux-flow` keyframes and its transform math |
+| 09 | [`09-array-generated-bands`](09-array-generated-bands/README.md) | How `count(4,1)` + auto-indexing produces `wave-1..4` |
+| 10 | [`10-per-band-styling`](10-per-band-styling/README.md) | Position, height, opacity, blur, delay, duration per band |
+| 11 | [`11-overriding-tokens`](11-overriding-tokens/README.md) | Re-skin waves with `:root` overrides, no mixin edits |
+| 12 | [`12-changing-band-count`](12-changing-band-count/README.md) | 2, 6, or 8 bands via a custom `count()` array |
+| 13 | [`13-controlling-wave-size`](13-controlling-wave-size/README.md) | Width, max-width, height, radius, responsive scales |
+| 14 | [`14-timing-and-motion`](14-timing-and-motion/README.md) | Delays, durations, easing, negative-delay trick, infinite loops |
+| 15 | [`15-multiple-waves-per-page`](15-multiple-waves-per-page/README.md) | Heroes, footers, and many waves from one token call |
+| 16 | [`16-variables-and-waves`](16-variables-and-waves/README.md) | FSCSS `$` variables feeding `--flux-*` tokens |
+| 17 | [`17-fun-stores-for-waves`](17-fun-stores-for-waves/README.md) | `@fun` palettes and spacing stores powering waves |
+| 18 | [`18-event-powered-themes`](18-event-powered-themes/README.md) | `@event`-driven dark/light/brand wave themes |
+| 19 | [`19-modular-wave-projects`](19-modular-wave-projects/README.md) | `@import` + file structure for larger wave sites |
+| 20 | [`20-random-and-dynamic-waves`](20-random-and-dynamic-waves/README.md) | `@random` band colors and `exec()` debugging |
+| 21 | [`21-design-your-own-tokens`](21-design-your-own-tokens/README.md) | Rebuild `flux-tokens` with a block `@define` |
+| 22 | [`22-write-your-band-mixins`](22-write-your-band-mixins/README.md) | Rebuild `flux-band` + `flux-bands` yourself |
+| 23 | [`23-the-preset-pattern`](23-the-preset-pattern/README.md) | Compose `flux-wave-preset` and your own presets |
+| 24 | [`24-wave-loaders`](24-wave-loaders/README.md) | Loaders, spinners, and boot screens from wave technique |
+| 25 | [`25-gradient-badge-remix`](25-gradient-badge-remix/README.md) | A wave-style badge remixing tokens + arrays |
+| 26 | [`26-shorthand-and-helpers`](26-shorthand-and-helpers/README.md) | `%n`, `mxs`, vendor prefixes inside wave helpers |
+| 27 | [`27-responsive-and-accessible`](27-responsive-and-accessible/README.md) | Media queries and `prefers-reduced-motion` for waves |
+| 28 | [`28-publishing-your-wave`](28-publishing-your-wave/README.md) | `package.json` meta, health, GitHub README, remote import |
+| 29 | [`29-flux-ecosystem`](29-flux-ecosystem/README.md) | The FSCSS module library and where flux-wave fits |
+| 30 | [`30-capstone-flux-landing`](30-capstone-flux-landing/README.md) | Ship a themed landing page with waves, loaders, and a badge |
 
-## Official resources
+## Prerequisites
 
-- Documentation: https://fscss.devtem.org/docs
+- Basic HTML/CSS comfort.
+- Nothing else — FSCSS gets installed in Tutorial 02.
+
+## Official FSCSS references used along the way
+
+- Docs: https://fscss.devtem.org/docs
+- Import guide: https://fscss.devtem.org/import
 - NPM: https://www.npmjs.com/package/fscss
 - GitHub: https://github.com/fscss-ttr/FSCSS
-- Import guide: https://fscss.devtem.org/import
-- Community: https://dev.to/fscss-ttr
+
+Start with [01 — Introducing flux-wave](01-introducing-flux-wave/README.md).
